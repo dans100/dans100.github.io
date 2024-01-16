@@ -1,0 +1,227 @@
+/* ==========================================================================
+   #HEADER
+   ========================================================================== */
+
+.header__container {
+  position: relative;
+}
+
+.header__logo {
+  position: fixed;
+  margin: 0;
+  top: 40px;
+  left: 70px;
+  z-index: 9999;
+
+  @media (max-width: 991px) {
+    top: 16px;
+    left: 24px;
+  }
+
+  @media (min-width: 1361px) {
+    left: calc((100vw - 1360px) / 2 + 70px);
+  }
+}
+
+.header__nav {
+  display: none;
+  @media (min-width: 992px) {
+    position: absolute;
+    display: flex;
+    top: 43px;
+    right: 437px;
+    z-index: 9999;
+    list-style: none;
+
+    li {
+      &:not(:last-child) {
+        margin-right: 27px;
+      }
+
+      a {
+        text-decoration: none;
+        font-family: Arboria;
+        font-size: 14px;
+        font-weight: 500;
+        color: #944385;
+        transition: all 0.3s ease-in;
+        -webkit-transition: all 0.3s ease-in;
+        -moz-transition: all 0.3s ease-in;
+      }
+
+      &:hover {
+        a {
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1199px) {
+    right: 380px;
+  }
+}
+
+.header__right {
+  display: none;
+
+  @media (min-width: 992px) {
+    position: absolute;
+    display: flex;
+    right: 82px;
+    top: 30px;
+    z-index: 9999;
+    list-style: none;
+
+    li {
+      width: 142px;
+      line-height: 42px;
+      border-radius: 84px;
+      background-color: #fff;
+      text-align: center;
+      transition: all 0.3s ease-in;
+      -webkit-transition: all 0.3s ease-in;
+      -moz-transition: all 0.3s ease-in;
+
+      &:hover {
+        a {
+          color: #944385;
+        }
+      }
+
+      &:nth-child(1) {
+        &:hover {
+          background-color: #7fd1be;
+        }
+      }
+
+      &:nth-child(2) {
+        margin-left: 17px;
+
+        &:hover {
+          background-color: #f5cdd5;
+        }
+      }
+
+      a {
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: 700;
+        color: #000;
+        letter-spacing: 1.2px;
+        transition: all 0.3s ease-in;
+        -webkit-transition: all 0.3s ease-in;
+        -moz-transition: all 0.3s ease-in;
+      }
+    }
+  }
+
+  @media (max-width: 1199px) {
+    right: 40px;
+  }
+}
+
+/* Mobile menu */
+.header__mobile-menu {
+  display: none;
+
+  @media (max-width: 991px) {
+    display: block;
+  }
+}
+
+.mobile-menu {
+  position: fixed;
+  width: 100%;
+  background-color: #26bbe1;
+  top: 0;
+  left: -100%;
+  right: 0;
+  bottom: 0;
+  z-index: 9998;
+  pointer-events: none;
+  visibility: hidden;
+  display: none;
+  transition: all 0.3s ease-in;
+  -webkit-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+
+  @media (max-width: 991px) {
+    display: block;
+  }
+
+  &.active {
+    pointer-events: auto;
+    visibility: visible;
+    left: 0;
+  }
+}
+
+.mobile-menu__nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 147px;
+  list-style: none;
+
+  li {
+    font-size: 24px;
+    font-weight: 500;
+    padding-bottom: 32px;
+
+    a {
+      text-decoration: none;
+      color: #d1e85a;
+    }
+  }
+}
+
+.mobile-menu__toggler {
+  position: fixed;
+  display: none;
+  top: 16px;
+  right: 16px;
+  width: 73px;
+  height: 32px;
+  z-index: 9999;
+  cursor: pointer;
+
+  @media (max-width: 991px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+}
+
+.burger-bar {
+  height: 2px;
+  width: 57px;
+  background: #fff;
+  transition: all 0.3s ease-in;
+  -webkit-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+}
+
+.burger-bar:nth-child(1) {
+  transform-origin: 0% 0%;
+}
+
+.burger-bar:nth-child(3) {
+  transform-origin: 0% 100%;
+}
+
+.mobile-menu__toggler.open .burger-bar:nth-child(1) {
+  transform: rotate(45deg);
+  width: 25px;
+}
+
+.mobile-menu__toggler.open .burger-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu__toggler.open .burger-bar:nth-child(3) {
+  transform: rotate(-45deg);
+  width: 25px;
+}
